@@ -6,6 +6,7 @@
 
 
 **Tier:** [ ] Tier 1  [✅] Tier 2  [ ] Tier 3
+I selected a Tier 2 issue because I could understand what part of the app was affected and I wanted to challenge myself to pick a Tier 2 issue even though I've never made an open source contribution before.
 
 **Problem summary:**
 The issue lies with the fact that when a user's profile is deleted from the database, the vector store embeddings and review records related to that profile aren't removed. A successful fix would get rid of all associated information related to the profile that needs to be deleted from the database and the vector store database. The part of the codebase the issue affects is the ChromaDB vector store deletion path in `profile_service.py`.
