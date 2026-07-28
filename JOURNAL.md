@@ -16,3 +16,20 @@ The issue lies with the fact that when a user's profile is deleted from the data
 **Setup confirmation:** [✅] App runs locally at localhost:5173
 
 **Cohort ledger:** [✅] Issue added to cohort ledger
+
+
+## Week 8 — Reproduction & solution planning
+
+**Reproducing issue #80:** 
+- Ran the app, created a profile, added sources, and then tried deleting a profile after which I queried Postgres and all ingestions and reviews related to the profile were deleted 
+- Went through `delete_profile` in `profile_service.py` and noticed there's no import for ChromaDB, only ingested sources, reviews, and the profile itself are deleted from Postgres, leaving information still in the vector database
+- I then went to the retriever folder and investigated `vector_store.py` and noticed that there was a method to delete individual sources based on their id, but no method to delete a whole profile collection (`profile_{profile_id}`) which is why there were orphaned embeddings
+
+**Reproduction commit link:** [link to commit documenting the reproduced issue]
+
+**Reproduction summary:**
+
+
+**PLAN.md link:** [link to PLAN.md in your fork]
+
+**Blockers or open questions:**
