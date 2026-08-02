@@ -53,16 +53,16 @@ None.
 
 ### Check-in 2 (end of week)
 
-**PR link:** [link to your submitted pull request]
+**PR link:** https://github.com/ascherj/pathreview/pull/539
 
-**Branch:** [the branch name you worked on, e.g. `fix/123-short-description`]
+**Branch:** `fix/80-profile-cascade-deletion`
 
 **What you built:**
-[1–3 sentences summarizing what your fix does and how it works]
+A cascade so that deleting a profile also removes its embeddings from ChromaDB. `delete_profile` now builds the `profile_{profile_id}` collection name and calls a new `VectorStore.delete_collection` method, which deletes the whole collection.
 
 **Tests added or updated:**
-[Which test files did you touch? What do they cover?]
+Added `tests/unit/test_profile_delete_service.py` with 2 unit tests. One confirms the correct ChromaDB collection is deleted when the profile exists, and one confirms a missing profile returns `False` without opening a ChromaDB connection.
 
-**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+**Self-review confirmation:** [x] make check passes  [x] make test-unit passes
 
-**Draft PR feedback received from:** [name or Slack handle, or "none"]
+**Draft PR feedback received from:** None
