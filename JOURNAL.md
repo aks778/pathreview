@@ -63,6 +63,6 @@ A cascade so that deleting a profile also removes its embeddings from ChromaDB. 
 **Tests added or updated:**
 Added `tests/unit/test_profile_delete_service.py` with 2 unit tests. One confirms the correct ChromaDB collection is deleted when the profile exists, and one confirms a missing profile returns `False` without opening a ChromaDB connection.
 
-**Self-review confirmation:** [x] make check passes  [x] make test-unit passes
+**Self-review confirmation:** [✅] make check passes  [✅] make test-unit passes
 
 **Draft PR feedback received from:** None
