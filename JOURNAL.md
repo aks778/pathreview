@@ -34,3 +34,35 @@ I reproduced the issue by creating a profile, then deleting it, which I noticed 
 **PLAN.md link:** https://github.com/aks778/pathreview/blob/fix/80-profile-cascade-deletion/PLAN.md
 
 **Blockers or open questions:** None
+
+
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+All three PLAN.md sub-tasks are done. I added a `delete_collection(collection_name)` method to `vector_store.py` that deletes a profile's whole ChromaDB collection and catches `NotFoundError` so deleting a profile with no embeddings is safe. I then wired it into `delete_profile` in `profile_service.py` so the `profile_{profile_id}` collection is deleted as part of the cascade (before the Postgres commit, so a failure rolls back rather than keeping orphaned data). I also added unit tests in `tests/unit/test_profile_delete_service.py` covering the happy path (embeddings deleted) and the not-found path (returns `False`, never touches ChromaDB).
+
+**Next steps:**
+I will open a draft PR and request peer feedback, and then mark the PR ready for review once I've received feedback. 
+
+**Blockers:**
+None.
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** [link to your submitted pull request]
+
+**Branch:** [the branch name you worked on, e.g. `fix/123-short-description`]
+
+**What you built:**
+[1–3 sentences summarizing what your fix does and how it works]
+
+**Tests added or updated:**
+[Which test files did you touch? What do they cover?]
+
+**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+
+**Draft PR feedback received from:** [name or Slack handle, or "none"]
