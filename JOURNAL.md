@@ -66,3 +66,34 @@ Added `tests/unit/test_profile_delete_service.py` with 2 unit tests. One confirm
 **Self-review confirmation:** [✅] make check passes  [✅] make test-unit passes
 
 **Draft PR feedback received from:** None
+
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [✅] No — still awaiting review
+
+**Summary of feedback:**
+No review has come in yet.
+
+**How you responded:**
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+Getting the commit through was harder than the actual fix — the pre-commit hooks kept failing on pre-existing mypy and ruff issues in files I'd barely touched, so I had to work out what was mine versus what was already broken.
+
+**What did you learn about working in a large codebase?**
+I spent a lot of time tracing how `delete_profile`, `VectorStore`, and ChromaDB actually connect. Since it was a large codebase, it took some time for me to orient myself.
+
+**How did AI tools help — and where did they fall short?**
+AI was great at explaining errors but it couldn't decide things like which ChromaDB backend the app really uses or whether the pre-existing failures were my responsibility.
+
+**What would you do differently if you started over?**
+I would spend more time in the planning phase and understand the issue better before writing any code, because not fully grasping the issue slowed me down during the implementation phase.
+
+**What are you most proud of from this module?**
+I'm most proud of opening my first open source PR. After noting back in Week 7 that I'd never contributed to open source before, actually submitting a real PR t to someone else's project was something that made me proud of myself.
